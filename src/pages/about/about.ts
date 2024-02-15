@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RoomPage } from  '../room/room';
+
+//  SIGN IN CHAT
 
 @Component({
   selector: 'page-about',
@@ -7,8 +10,19 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
+  data = { nickname:"" };
 
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SigninPage');
+  }
+
+  enterNickname() {
+    this.navCtrl.setRoot(RoomPage, {
+      nickname: this.data.nickname
+    });
   }
 
 }
